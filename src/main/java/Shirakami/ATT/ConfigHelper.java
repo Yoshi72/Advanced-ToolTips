@@ -1,7 +1,7 @@
 package Shirakami.ATT;
 
 import java.io.File;
-import java.util.HashMap;
+
 import net.minecraftforge.common.config.Configuration;
 
 public class ConfigHelper
@@ -20,11 +20,12 @@ public class ConfigHelper
 	public static boolean	showToolEfficiency, showToolLevel, showToolEnchantability, showToolDurability;
 	public static boolean	showSwordEnchantability, showSwordDurability;
 	public static boolean	showArmorType, showArmorReduction, showArmorEnchantability, showArmorDurability;
+	public static boolean	showItemDurability, showItemEnchantability;
 
-	public static int		colorItemDurability;
 	public static int		colorToolEfficiency, colorToolLevel, colorToolEnchantability, colorToolDurability;
 	public static int		colorSwordEnchantability, colorSwordDurability;
 	public static int		colorArmorType, colorArmorReduction, colorArmorEnchantability, colorArmorDurability;
+	public static int		colorItemDurability, colorItemEnchantability;
 
 	public static void ATTinit()
 	{
@@ -43,8 +44,8 @@ public class ConfigHelper
 		showToolDurability = cfg.getBoolean("showToolDurability", "Tools", true, "Durability of this tool (durability left/durability max)");
 
 		cfg.addCustomCategoryComment("Sword", "Toggles specific tooltips for swords on or off");
-		showSwordEnchantability = cfg.getBoolean("DisplayswordEnchantability", "Swords", true, "Enchantability of this sword (higher numbers means higher level enchants)");
-		showSwordDurability = cfg.getBoolean("DisplayswordDurability", "Swords", true, "Durability of this sword (durability left/durability max)");
+		showSwordEnchantability = cfg.getBoolean("DisplaySwordEnchantability", "Swords", true, "Enchantability of this sword (higher numbers means higher level enchants)");
+		showSwordDurability = cfg.getBoolean("DisplaySwordDurability", "Swords", true, "Durability of this sword (durability left/durability max)");
 
 		cfg.addCustomCategoryComment("Armor", "Toggles specific tooltips for armor on or off");
 		showArmorType = cfg.getBoolean("showArmorType", "Armor", true, "Displays in which kind of armor (What kind of armor this is. Helmet, Chestplate, Leggings, Boots)");
@@ -52,17 +53,22 @@ public class ConfigHelper
 		showArmorEnchantability = cfg.getBoolean("showArmorEnchantability", "Armor", true, "Enchantability of this armor (higher numbers means higher level enchants)");
 		showArmorDurability = cfg.getBoolean("showArmorDurability", "Armor", true, "Durability of this armor (durability left/durability max)");
 
+		cfg.addCustomCategoryComment("Item", "Toggles specific tooltips for all other items on or off");
+		showItemEnchantability = cfg.getBoolean("DisplayItemEnchantability", "Swords", true, "Enchantability of this item (higher numbers means higher level enchants)");
+		showItemDurability = cfg.getBoolean("DisplayItemDurability", "Swords", true, "Durability of this item (durability left/durability max)");
+		
 		cfg.addCustomCategoryComment("Color", "Text color of your tooltips. 0 = BLACK, 1=DARK_BLUE, 2=DARK_GREEN, 3=DARK_AQUA, 4=DARK_RED, 5=DARK_PURPLE, 6=GOLD, 7=GRAY, 8=DARK_GRAY, 9=BLUE, 10=GREEN, 11=AQUA, 12=RED, 13=LIGHT_PURPLE, 14=YELLOW, 15=WHITE");
-		colorItemDurability = cfg.getInt("colorItemDurability", "Color", 15, 0, 15, "Text color of item durability");
 		colorToolEfficiency = cfg.getInt("colorToolEfficiency", "Color", 15, 0, 15, "Text color of tool efficency");
 		colorToolLevel = cfg.getInt("colorToolLevel", "Color", 15, 0, 15, "Text color of tool harvest level");
-		colorToolEnchantability = cfg.getInt("colorToolEnchantability", "Color", 0, 0, 15, "Text color of tool enchantability");
+		colorToolEnchantability = cfg.getInt("colorToolEnchantability", "Color", 15, 0, 15, "Text color of tool enchantability");
 		colorToolDurability = cfg.getInt("colorToolDurability", "Color", 15, 0, 15, "Text color of tool durability");
-		colorSwordEnchantability = cfg.getInt("colorSwordEnchantability", "Color", 0, 0, 15, "Text color of sword enchantability");
+		colorSwordEnchantability = cfg.getInt("colorSwordEnchantability", "Color", 15, 0, 15, "Text color of sword enchantability");
 		colorSwordDurability = cfg.getInt("colorSwordDurability", "Color", 15, 0, 15, "Text color of sword durability");
 		colorArmorType = cfg.getInt("colorArmorType", "Color", 15, 0, 15, "Text color of armor type");
 		colorArmorReduction = cfg.getInt("colorArmorReduction", "Color", 15, 0, 15, "Text color of armor damage reduction");
 		colorArmorEnchantability = cfg.getInt("colorArmorEnchantability", "Color", 15, 0, 15, "Text color of armor enchantability");
 		colorArmorDurability = cfg.getInt("colorArmorDurability", "Color", 15, 0, 15, "Text color of armor durability");
+		colorItemEnchantability = cfg.getInt("colorItemEnchantability", "Color", 15, 0, 15, "Text color of item enchantability");
+		colorItemDurability = cfg.getInt("colorItemDurability", "Color", 15, 0, 15, "Text color of item durability");
 	}
 }

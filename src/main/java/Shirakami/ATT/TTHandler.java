@@ -108,8 +108,16 @@ public class TTHandler
 			}
 
 			// All other Items
-			else if (ConfigHelper.showTooltipItems = true && item.getMaxDamage() > 0)
-				event.toolTip.add("\u00a7" + Integer.toHexString(ConfigHelper.colorItemDurability) + StatCollector.translateToLocal("tooltip.durability") + ": " + (stack.getMaxDamage() - stack.getItemDamage()) + "/" + (stack.getMaxDamage()));
+			else if (ConfigHelper.showTooltipItems = true)
+			{
+				if (ConfigHelper.showItemEnchantability = true)
+					if (item.getItemEnchantability() > 0)
+						event.toolTip.add("\u00a7" + Integer.toHexString(ConfigHelper.colorItemEnchantability) + StatCollector.translateToLocal("tooltip.enchantability") + ": " + item.getItemEnchantability());
+				if (ConfigHelper.showItemDurability = true)
+					if (item.getMaxDamage() > 0)
+						event.toolTip.add("\u00a7" + Integer.toHexString(ConfigHelper.colorItemDurability) + StatCollector.translateToLocal("tooltip.durability") + ": " + (stack.getMaxDamage() - stack.getItemDamage()) + "/" + (stack.getMaxDamage()));
+
+			}
 		}
 	}
 
