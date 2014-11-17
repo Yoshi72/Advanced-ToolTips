@@ -1,0 +1,16 @@
+[
+{
+  "modid": "ATT",
+  "name": "Advanced Tooltips",
+  "description": "Adds some more Tooltips for your Items. It shows stuff like durability, harvest level or damage reduction of your armor.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Shirakami"],
+  "credits": "FML Team, squeek",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

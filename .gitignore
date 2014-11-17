@@ -1,0 +1,15 @@
+# Folder
+.gradle/
+.settings/
+bin/
+build/
+eclipse/
+gradle/
+
+# Root Files
+*.bat
+*.lnk
+*.txt
+.classpath
+.project
+gradlew
