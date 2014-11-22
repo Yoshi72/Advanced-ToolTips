@@ -2,6 +2,8 @@ package Shirakami.ATT;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemBow;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
@@ -74,6 +76,19 @@ public class TTHandler
 					else
 						event.toolTip.add("\u00a7" + Integer.toHexString(ConfigHelper.colorSwordDurability) + StatCollector.translateToLocal("tooltip.durabilityInfinite"));
 			}
+			
+			else if (ConfigHelper.showTooltipBow = true && item instanceof ItemBow)
+			{
+				ItemBow bow = (ItemBow) item;
+				if (ConfigHelper.showBowDuration = true)
+					event.toolTip.add("\u00a7" + Integer.toHexString(ConfigHelper.colorBowDuration) + StatCollector.translateToLocal("tooltip.bowDuration") + ": " + bow.getMaxItemUseDuration(stack));
+				if (ConfigHelper.showBowEnchantability = true)
+					if (bow.getItemEnchantability() > 0)
+						event.toolTip.add("\u00a7" + Integer.toHexString(ConfigHelper.colorBowEnchantability) + StatCollector.translateToLocal("tooltip.enchantability") + ": " + item.getItemEnchantability());
+				if (ConfigHelper.showBowDurability = true)
+					if (bow.getMaxDamage() > 0)
+						event.toolTip.add("\u00a7" + Integer.toHexString(ConfigHelper.colorBowDurability) + StatCollector.translateToLocal("tooltip.durability") + ": " + (stack.getMaxDamage() - stack.getItemDamage()) + "/" + (stack.getMaxDamage()));
+			}
 
 			// Armor
 			else if (ConfigHelper.showTooltipArmor = true && item instanceof ItemArmor)
@@ -106,6 +121,18 @@ public class TTHandler
 					else
 						event.toolTip.add("\u00a7" + Integer.toHexString(ConfigHelper.colorArmorDurability) + StatCollector.translateToLocal("tooltip.durabilityInfinite"));
 			}
+			
+			else if (ConfigHelper.showTooltipFood = true && item instanceof ItemFood)
+			{
+				ItemFood food = (ItemFood) item;
+				if (ConfigHelper.showFoodDuration = true)
+					event.toolTip.add("\u00a7" + Integer.toHexString(ConfigHelper.colorFoodDuration) + StatCollector.translateToLocal("tooltip.foodDuration") + ": " + food.getMaxItemUseDuration(stack));
+				if (ConfigHelper.showFoodHunger = true)
+					event.toolTip.add("\u00a7" + Integer.toHexString(ConfigHelper.colorFoodHunger) + StatCollector.translateToLocal("tooltip.foodHunger") + ": " + food.func_150905_g(stack));
+				if (ConfigHelper.showFoodSaturation = true)
+					event.toolTip.add("\u00a7" + Integer.toHexString(ConfigHelper.colorFoodSaturation) + StatCollector.translateToLocal("tooltip.foodSaturation") + ": " + food.func_150906_h(stack));
+			}
+			
 
 			// All other Items
 			else if (ConfigHelper.showTooltipItems = true)
@@ -116,7 +143,6 @@ public class TTHandler
 				if (ConfigHelper.showItemDurability = true)
 					if (item.getMaxDamage() > 0)
 						event.toolTip.add("\u00a7" + Integer.toHexString(ConfigHelper.colorItemDurability) + StatCollector.translateToLocal("tooltip.durability") + ": " + (stack.getMaxDamage() - stack.getItemDamage()) + "/" + (stack.getMaxDamage()));
-
 			}
 		}
 	}
